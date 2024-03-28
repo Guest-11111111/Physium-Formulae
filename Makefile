@@ -6,24 +6,24 @@ ifndef SDK_DIR
 $(error You need to define the SDK_DIR environment variable, and point it to the sdk/ folder)
 endif
 
-AS:=sh4-elf-gcc
+AS:=sh4aeb-elf-gcc
 AS_FLAGS:=-DAPPNAME_STRING=\"$(APP_NAME)\"
 
-COMMON_FLAGS:=-ffreestanding -fshort-wchar -O2 -m4a-nofpu -DAPPNAME_STRING=\"$(APP_NAME)\"
-INCLUDES:=-I $(SDK_DIR)/include/ -I $(SDK_DIR)/newlib/sh4-elf/include
+COMMON_FLAGS:=-flto -ffunction-sections -fdata-sections -ffreestanding -fshort-wchar -O2 -m4a-nofpu -DAPPNAME_STRING=\"$(APP_NAME)\"
+INCLUDES:=-I $(SDK_DIR)/include/
 WARNINGS:=-Wall -Wextra
 
-CC:=sh4-elf-gcc
+CC:=sh4aeb-elf-gcc
 CC_FLAGS:=$(COMMON_FLAGS) $(INCLUDES) $(WARNINGS)
 
-CXX:=sh4-elf-g++
+CXX:=sh4aeb-elf-g++
 CXX_FLAGS:=-fno-exceptions -fno-rtti -Wno-write-strings $(COMMON_FLAGS) $(INCLUDES) $(WARNINGS)
 
-LD:=sh4-elf-gcc
-LD_FLAGS:=-nostartfiles -m4a-nofpu -Wno-undef -L$(SDK_DIR)/newlib/sh4-elf/lib/m4-nofpu
+LD:=sh4aeb-elf-g++
+LD_FLAGS:=-m4a-nofpu -Wl,--gc-sections -Wno-undef
 
-READELF:=sh4-elf-readelf
-OBJCOPY:=sh4-elf-objcopy
+READELF:=sh4aeb-elf-readelf
+OBJCOPY:=sh4aeb-elf-objcopy
 
 SOURCEDIR = src
 BUILDDIR = obj
@@ -53,12 +53,12 @@ $(APP_BIN): $(APP_ELF)
 
 $(APP_ELF): $(OBJECTS) $(SDK_DIR)/sdk.o linker.ld
 	mkdir -p $(dir $@)
-	$(LD) -T linker.ld -o $@ $(LD_FLAGS) $(OBJECTS) $(SDK_DIR)/sdk.o
+	$(LD) -T linker.ld -Wl,-Map $@.map -o $@ $(LD_FLAGS) $(OBJECTS) -L$(SDK_DIR) -lsdk
 
 # We're not actually building sdk.o, just telling the user they need to do it
 # themselves. Just using the target to trigger an error when the file is
 # required but does not exist.
-$(SDK_DIR)/sdk.o:
+$(SDK_DIR)/libsdk.a:
 	$(error You need to build the SDK before using it. Run make in the SDK directory, and check the README.md in the SDK directory for more information)
 
 $(BUILDDIR)/%.o: %.S

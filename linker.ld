@@ -2,46 +2,46 @@ ENTRY(_start);
 STARTUP(crt0.o);
 
 SECTIONS {
-    start_address = 0x8CFE2000;
+    start_address = 0x8CFE6000;
     . = start_address;
     .bootstrap.start : AT(start_address) {
-        *(.bootstrap.start)
+        *(.bootstrap.start*)
     }
     
-    info_address = 0x8CFE2010;
+    info_address = 0x8CFE6010;
     . = info_address;
     .hollyhock_name : {
-        *(.hollyhock_name)
+        KEEP(*(.hollyhock_name))
     }
     .hollyhock_description : {
-        *(.hollyhock_description)
+        KEEP(*(.hollyhock_description))
     }
     .hollyhock_author : {
-        *(.hollyhock_author)
+        KEEP(*(.hollyhock_author))
     }
     .hollyhock_version : {
-        *(.hollyhock_version)
+        KEEP(*(.hollyhock_version))
     }
 
     .bootstrap : {
-        *(.bootstrap.text)
-        *(.bootstrap.data)
+        *(.bootstrap.text*)
+        *(.bootstrap.data*)
     }
 
     .text : {
-        *(.text)
+        *(.text*)
         *(.rodata*)
     }
 
     .data : {
-        *(.data)
+        *(.data*)
     }
     
     _edata = .;
     PROVIDE(edata = .);
     
     .bss : {
-        *(.bss)
+        *(.bss*)
         *(COMMON)
     }
     

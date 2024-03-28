@@ -12,7 +12,6 @@ APP_AUTHOR("PC")
 APP_VERSION("1.0.2")
 
 extern "C" int __attribute__((section(".bootstrap.text"))) main(void) {
-  fprintf(stdout, "Loading the CP test\n");
-
+  fputs("Loading the CP test\n", stdout);
   exit(EXIT_SUCCESS);
 }
