@@ -1,11 +1,12 @@
-FROM pho3be/sh4devenvgitpod:latest
+FROM ghcr.io/therainbowphoenix/cp-codespace:beta-02
 
 USER root
 
-RUN apt-get update && apt-get install -y nano vim clangd-13 clang-format-13
+RUN apt-get update && apt-get install -y nano vim clangd-13 clang-format-13 wget
 
 USER dev
 
 RUN mkdir ~/tmp
+RUN wget https://raw.githubusercontent.com/ClasspadDev/faq/main/faq.md -o faq
 
-RUN echo -e "echo \"$(tput setaf 2)\n\n [  > v<]~      Welcome to the ClassPad SDK ! \n                You can build using make hhk\n\n$(tput sgr0)\"" >> ~/.bashrc
+RUN echo -e "echo \"$(tput setaf 2)\n\n [  > v<]~      Welcome to the ClassPad SDK ! \n                You can build using \"make bin\"\n                Check the faq \"cat ~/faq\"\n\n$(tput sgr0)\"" >> ~/.bashrc

@@ -1,5 +1,5 @@
-# CPAppTemplate
-A test that could become the next CP App Template
+# CP Base Template
+the CP App Template featuring a complete stdlib
 
 ## Usage
 First, fork this repo to work on your own :
