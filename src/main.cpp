@@ -1,4 +1,4 @@
-#include "sys/_intsup.h"
+
 #include <appdef.hpp>
 #include <stdio.h>
 #include <stdlib.h>
@@ -24,28 +24,30 @@ void main2() {
   fillScreen(color(31,64,31));
   LCD_Refresh();
   Debug_SetCursorPosition(264,160);
-	Debug_PrintString("Physium Solver",1);
+	Debug_PrintString("Physium Formulae",0);
 	Debug_SetCursorPosition(275, 160);
-	Debug_PrintString("ClΔssPΔd",1);
+	Debug_PrintString("ClΔssPΔd",0);
 	LCD_Refresh();
 	while(true){
     	uint32_t key1, key2;    // First create variables
     	getKey(&key1, &key2);    // then read the keys
     	if(testKey(key1, key2, KEY_EXE)){ // Use testKey() to test if a specific key is pressed 
-    	    break;
-    }
+    	    goto Main_Menu;
+    	}else if(testKey(key1,key2, KEY_CLEAR )){
+			goto End_Main;
+		};
 	}
 	Main_Menu:
 	fillScreen(color(31,64,31));
 	LCD_Refresh();
-	fillScreen(color(31,64,31));
-	LCD_Refresh();
+	Debug_SetCursorPosition(0,160);
+  	Debug_PrintString("Physium Formulae-ClΔssPΔd", 0);
 	Debug_SetCursorPosition(6,1);
-	Debug_PrintString("[1] Solver",1);
+	Debug_PrintString("[1] Solver",0);
 	Debug_SetCursorPosition(6,1);
-	Debug_PrintString("[2] Formulas",1);
+	Debug_PrintString("[2] Formulas",0);
 	Debug_SetCursorPosition(6,2);
-	Debug_PrintString("[3] Exit",1);
+	Debug_PrintString("[3] Exit",0);
 	LCD_Refresh();
 	uint32_t Menukey;
 	uint32_t MenKey;
@@ -54,31 +56,35 @@ void main2() {
 		fillScreen(color(31,63,31));
 		LCD_Refresh();
 		Debug_SetCursorPosition(6,0);
-		Debug_PrintString("Main Solver Menu",1);
-		Debug_SetCursorPosition(6,1);
-		Debug_PrintString("[1] GPE  GPE = m*g*h",1);
+      		Debug_PrintString("Physium Formulae-ClΔssPΔd", 0);
 		Debug_SetCursorPosition(6,2);
-		Debug_PrintString("[2] Force m*a, m*g",1);
+		Debug_PrintString("Main Solver Menu",0);
+		Debug_SetCursorPosition(6,1);
+		Debug_PrintString("[1] GPE  GPE = m*g*h",0);
+		Debug_SetCursorPosition(6,2);
+		Debug_PrintString("[2] Force m*a, m*g",0);
 		Debug_SetCursorPosition(6,3);
-		Debug_PrintString("[3] Acceleration ΔV / Δt, a = F/m",1);
+		Debug_PrintString("[3] Acceleration ΔV / Δt, a = F/m",0);
 		Debug_SetCursorPosition(6,4);
-		Debug_PrintString("[4] Velocity (d/t) & direction",1);
+		Debug_PrintString("[4] Velocity (d/t) & direction",0);
 		LCD_Refresh();
 		uint32_t SMenukey;
 		uint32_t Skey;
 		getKey(&SMenukey, &Skey);
 		LCD_Refresh();
 		if(SMenukey == KEY_1){
+      		Debug_SetCursorPosition(0,160);
+      		Debug_PrintString("Physium Formulae-ClΔssPΔd", 0);
 			Debug_SetCursorPosition(6,0);
-			Debug_PrintString("GPE Solver Submenu",1);
+			Debug_PrintString("GPE Solver Submenu",0);
 			Debug_SetCursorPosition(6,1);
-			Debug_PrintString("[1] GPE",1);
+			Debug_PrintString("[1] GPE",0);
 			Debug_SetCursorPosition(6,2);
-			Debug_PrintString("[2] Mass",1);
+			Debug_PrintString("[2] Mass",0);
 			Debug_SetCursorPosition(6,3);
-			Debug_PrintString("[3] Acceleration to Gravity",1);
+			Debug_PrintString("[3] Acceleration to Gravity",0);
 			Debug_SetCursorPosition(6,4);
-			Debug_PrintString("[4] Height",1);
+			Debug_PrintString("[4] Height",0);
 			LCD_Refresh();
 			uint32_t GPEKey;
 			uint32_t ConfGPE;
@@ -86,10 +92,10 @@ void main2() {
 			LCD_Refresh();
 			if(GPEKey == KEY_1){
 				Debug_SetCursorPosition(264,160);
-				Debug_PrintString("Mass?",1);
+				Debug_PrintString("Mass?",0);
 				int m = getCommandInput();
 				LCD_ClearScreen();
-				Debug_PrintString("Acceleration to Gravity, g on earth is ~9.8 m/s^2 & is exactly 9.80665 m/s^2",1);
+				Debug_PrintString("Acceleration to Gravity, g on earth is ~9.8 m/s^2 & is exactly 9.80665 m/s^2",0);
 				int g = getCommandInput();
 				LCD_ClearScreen();
 				Debug_PrintString("Height?",1);
@@ -97,32 +103,72 @@ void main2() {
 				int GPE;
 				GPE = g*m*h;
 				LCD_ClearScreen();
-				Debug_PrintString("Press any key to exit answer",1);
+				Debug_PrintString("Press any key to exit answer",0);
 				int d = GPE;
-				Debug_SetCursorPosition(264, 150);
-				Debug_PrintString("%d",1);
-				if(Input_IsAnyKeyDown() == true){
-					goto Main_Menu;
-				}
+				Debug_SetCursorPosition(264, 159);
+				Debug_PrintString("%d",0);
+				while(true){
+    	  uint32_t key1, key2;    // First create variables
+      	getKey(&key1, &key2);    // then read the keys
+      	if(testKey(key1, key2, KEY_EXE)){ // Use testKey() to test if a specific key is pressed 
+      	    goto Main_Menu;
+        }
+	      }
 			}else if(GPEKey == KEY_2){
+        		Debug_SetCursorPosition(528,160);
+        		Debug_PrintString("Physium Formulae-ClΔssPΔd", 0);
 				Debug_SetCursorPosition(264,160);
-				Debug_PrintString("GPE=?",1);
+				Debug_PrintString("GPE=?",0);
 				LCD_Refresh();
 				int GPE = getCommandInput();
-
+        		LCD_ClearScreen();
+	        	Debug_SetCursorPosition(528,160);
+    	    	Debug_PrintString("Physium Formulae-ClΔssPΔd", 0);
+	        	Debug_PrintString("Acceleration to Gravity, g on earth is ~9.8 m/s^2 & is exactly 9.80665 m/s^2",0);
+    	    	LCD_Refresh();
+        		int g = getCommandInput();
+        		LCD_ClearScreen();
+        		Debug_SetCursorPosition(528,160);
+        		Debug_PrintString("Physium Formulae-ClΔssPΔd", 0);
+        		Debug_PrintString("Height=?",0);
+        		LCD_Refresh();
+        		int h = getCommandInput();
+        		LCD_ClearScreen();
+        		int d = (GPE /(g*h));
+        		Debug_SetCursorPosition(528,160);
+        		Debug_PrintString("Physium Formulae-ClΔssPΔd", 0);
+        		Debug_PrintString("Mass =",0);
+        		Debug_PrintString("%d", 0);
+        		LCD_Refresh();
+        		Debug_WaitKey();
 			}else if(GPEKey == KEY_3){
-				Debug_PrintString("PLACEHOLDER", 1);
-				Debug_WaitKey();
-				goto Main_Menu;
+        		Debug_SetCursorPosition(528,160);
+        		Debug_PrintString("Physium Formulae-ClΔssPΔd", 0);
+        		Debug_SetCursorPosition(264, 160);
+				Debug_PrintString("PLACEHOLDER", 0);
+				while(true){
+    	  			uint32_t key1, key2;    // First create variables
+      				getKey(&key1, &key2);    // then read the keys
+      				if(testKey(key1, key2, KEY_EXE)){ // Use testKey() to test if a specific key is pressed 
+      	    		goto Main_Menu;
+        		};
+	    		  };
 			}
 		
 		}
 					
 	}else if (Menukey == KEY_2){
+    Debug_SetCursorPosition(528,160);
+    Debug_PrintString("Physium Formulae-ClΔssPΔd", 0);
     Debug_SetCursorPosition(264,0);
-		Debug_PrintString("Formulas",1);
+		Debug_PrintString("Formulas",0);
 	}else if (Menukey == KEY_3){
-		
+    Debug_SetCursorPosition(528,160);
+    Debug_PrintString("Physium Formulae-ClΔssPΔd", 0);
+    Debug_SetCursorPosition(264,160);
+    Debug_PrintString("Program Terminating...",0);
+    LCD_Refresh();
+		calcEnd();
 	}
 						
 			//if(testkey(SMenukey, KEY_1)){
@@ -142,6 +188,6 @@ void main2() {
 		//	return 0;
 
 		
-	
+	End_Main:
 	calcEnd();
 }
