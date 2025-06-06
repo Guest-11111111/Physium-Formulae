@@ -1,3 +1,4 @@
+#include "sys/_intsup.h"
 #include <appdef.hpp>
 #include <stdio.h>
 #include <stdlib.h>
@@ -10,7 +11,7 @@
  * Fill this section in with some information about your app.
  * All fields are optional - so if you don't need one, take it out.
  */
-APP_NAME("Physium Formulae")
+APP_NAME("Physium Formulae: Physics solver")
 APP_DESCRIPTION("Bare physics solver. Will be updated. Press [EXE] for unpause.")
 APP_AUTHOR("Help_Programming")
 APP_VERSION("1.0.2")
@@ -19,15 +20,14 @@ int getCommandInput();
 
 extern "C" ;
 void main2() {
+  calcInit();
   fillScreen(color(31,64,31));
-	    LCD_Refresh();
-Debug_SetCursorPosition(264,160);
+  LCD_Refresh();
+  Debug_SetCursorPosition(264,160);
 	Debug_PrintString("Physium Solver",1);
 	Debug_SetCursorPosition(275, 160);
 	Debug_PrintString("ClΔssPΔd",1);
 	LCD_Refresh();
-	uint32_t a;
-	a =1;
 	while(true){
     	uint32_t key1, key2;    // First create variables
     	getKey(&key1, &key2);    // then read the keys
@@ -94,11 +94,11 @@ Debug_SetCursorPosition(264,160);
 				LCD_ClearScreen();
 				Debug_PrintString("Height?",1);
 				int h = getCommandInput();
-				uint32_t GPE;
+				int GPE;
 				GPE = g*m*h;
 				LCD_ClearScreen();
 				Debug_PrintString("Press any key to exit answer",1);
-				uint32_t d = GPE;
+				int d = GPE;
 				Debug_SetCursorPosition(264, 150);
 				Debug_PrintString("%d",1);
 				if(Input_IsAnyKeyDown() == true){
@@ -119,9 +119,10 @@ Debug_SetCursorPosition(264,160);
 		}
 					
 	}else if (Menukey == KEY_2){
-		Debug_PrintString("Hello",1);
+    Debug_SetCursorPosition(264,0);
+		Debug_PrintString("Formulas",1);
 	}else if (Menukey == KEY_3){
-		Debug_PrintString("Incomplete",1);
+		
 	}
 						
 			//if(testkey(SMenukey, KEY_1)){
@@ -142,5 +143,5 @@ Debug_SetCursorPosition(264,160);
 
 		
 	
-	
+	calcEnd();
 }
