@@ -1,4 +1,4 @@
-
+//#include "sys/_intsup.h"
 #include <appdef.hpp>
 #include <stdio.h>
 #include <stdlib.h>
@@ -16,7 +16,7 @@
 APP_NAME("Physium Formulae: Physics solver")
 APP_DESCRIPTION("Bare physics solver. Will be updated. Press [EXE] for unpause. Use the action Bar's Escape/ Exit for a Program Termination.")
 APP_AUTHOR("Help_Programming")
-APP_VERSION("1.0.2")
+APP_VERSION("1.0.0")
 
 
 
