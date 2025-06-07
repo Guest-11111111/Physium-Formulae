@@ -1,4 +1,3 @@
-
 #include <appdef.hpp>
 #include <stdio.h>
 #include <stdlib.h>
@@ -6,6 +5,7 @@
 #include <sdk/os/debug.hpp>
 #include <sdk/os/input.hpp>
 #include <sdk/calc/calc.hpp>
+
 
 /*
  * Fill this section in with some information about your app.
@@ -17,6 +17,8 @@ APP_AUTHOR("Help_Programming")
 APP_VERSION("1.0.2")
 
 int getCommandInput();
+int FlagSelected = 1 << 3;
+int FlagEnabled = 1 << 15;
 
 extern "C" ;
 void main2() {
@@ -25,7 +27,7 @@ void main2() {
   LCD_Refresh();
   Debug_SetCursorPosition(264,160);
 	Debug_PrintString("Physium Formulae",0);
-	Debug_SetCursorPosition(275, 160);
+	Debug_SetCursorPosition(263, 160);
 	Debug_PrintString("ClΔssPΔd",0);
 	LCD_Refresh();
 	while(true){
@@ -49,14 +51,13 @@ void main2() {
 	Debug_SetCursorPosition(6,2);
 	Debug_PrintString("[3] Exit",0);
 	LCD_Refresh();
-	uint32_t Menukey;
-	uint32_t MenKey;
+	uint32_t Menukey, MenKey;
 	getKey(&Menukey, &MenKey);
 	if(Menukey == KEY_1){
 		fillScreen(color(31,63,31));
 		LCD_Refresh();
 		Debug_SetCursorPosition(6,0);
-      		Debug_PrintString("Physium Formulae-ClΔssPΔd", 0);
+      	Debug_PrintString("Physium Formulae-ClΔssPΔd", 0);
 		Debug_SetCursorPosition(6,2);
 		Debug_PrintString("Main Solver Menu",0);
 		Debug_SetCursorPosition(6,1);
@@ -108,12 +109,12 @@ void main2() {
 				Debug_SetCursorPosition(264, 159);
 				Debug_PrintString("%d",0);
 				while(true){
-    	  uint32_t key1, key2;    // First create variables
-      	getKey(&key1, &key2);    // then read the keys
-      	if(testKey(key1, key2, KEY_EXE)){ // Use testKey() to test if a specific key is pressed 
-      	    goto Main_Menu;
-        }
-	      }
+    				uint32_t key1, key2;    // First create variables
+      				getKey(&key1, &key2);    // then read the keys
+      				if(testKey(key1, key2, KEY_EXE)){ // Use testKey() to test if a specific key is pressed 
+      				    goto Main_Menu;
+        			}
+	      		}
 			}else if(GPEKey == KEY_2){
         		Debug_SetCursorPosition(528,160);
         		Debug_PrintString("Physium Formulae-ClΔssPΔd", 0);
@@ -158,16 +159,16 @@ void main2() {
 		}
 					
 	}else if (Menukey == KEY_2){
-    Debug_SetCursorPosition(528,160);
-    Debug_PrintString("Physium Formulae-ClΔssPΔd", 0);
-    Debug_SetCursorPosition(264,0);
+	    Debug_SetCursorPosition(528,160);
+    	Debug_PrintString("Physium Formulae-ClΔssPΔd", 0);
+    	Debug_SetCursorPosition(264,0);
 		Debug_PrintString("Formulas",0);
 	}else if (Menukey == KEY_3){
-    Debug_SetCursorPosition(528,160);
-    Debug_PrintString("Physium Formulae-ClΔssPΔd", 0);
-    Debug_SetCursorPosition(264,160);
-    Debug_PrintString("Program Terminating...",0);
-    LCD_Refresh();
+    	Debug_SetCursorPosition(528,160);
+    	Debug_PrintString("Physium Formulae-ClΔssPΔd", 0);
+    	Debug_SetCursorPosition(264,160);
+    	Debug_PrintString("Program Terminating...",0);
+    	LCD_Refresh();
 		calcEnd();
 	}
 						
