@@ -1,4 +1,4 @@
-//#include "sys/_intsup.h"
+
 #include <appdef.hpp>
 #include <stdio.h>
 #include <stdlib.h>
@@ -91,7 +91,7 @@ double getCommandInput(){
 }
 
 extern "C" ;
-void main2() {
+void main() {
 	while (true) {
 	
 		calcInit();
@@ -176,16 +176,17 @@ void main2() {
 					double GPE;
 					GPE = g*m*h;
 					LCD_ClearScreen();
-					Debug_PrintString("Press any key to exit answer",0);
-					Debug_SetCursorPosition(264, 159);
-					Debug_PrintString("%G",0);
+					char buf[32];
+					snprintf(buf, sizeof(buf), "GPE = %.20f", GPE);
+					Debug_PrintString(buf, 0);
+					Debug_PrintString("Press any key to exit answer",1);
 					while(true){
-    					uint32_t key1, key2;    // First create variables
-      					getKey(&key1, &key2);    // then read the keys
-      					if(testKey(key1, key2, KEY_EXE)){ // Use testKey() to test if a specific key is pressed 
-      					    goto Main_Menu;
-        				}
-	      			}
+						uint32_t key1, key2;    // First create variables
+						getKey(&key1, &key2);    // then read the keys
+						if(testKey(key1, key2, KEY_EXE)){ // Use testKey() to test if a specific key is pressed 
+							goto Main_Menu;
+						}
+					}
 				}else if(GPEKey == KEY_2){
         			Debug_SetCursorPosition(528,160);
         			Debug_PrintString("Physium Formulae-ClΔssPΔd", 0);
@@ -209,10 +210,12 @@ void main2() {
         			Debug_SetCursorPosition(528,160);
 	        		Debug_PrintString("Physium Formulae-ClΔssPΔd", 0);
     	    		Debug_PrintString("Mass =",0);
-        			double m = (GPE /(g*h));
-        			Debug_PrintString("%d", 0);
-        			LCD_Refresh();
-	        		Debug_WaitKey();
+					double m = (GPE /(g*h));
+					char buf[32];
+					snprintf(buf, sizeof(buf), "Mass = %.20f", m);
+					Debug_PrintString(buf, 0);
+					LCD_Refresh();
+					Debug_WaitKey();
 				}else if(GPEKey == KEY_3){
         			Debug_SetCursorPosition(528,160);
         			Debug_PrintString("Physium Formulae-ClΔssPΔd", 0);

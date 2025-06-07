@@ -8,7 +8,7 @@ endif
 AS:=sh4aeb-elf-gcc
 AS_FLAGS:=-DAPPNAME_STRING=\"$(APP_NAME)\"
 
-COMMON_FLAGS:=-flto -ffunction-sections -fdata-sections -ffreestanding -fshort-wchar -O2 -m4a-nofpu -DAPPNAME_STRING=\"$(APP_NAME)\"
+COMMON_FLAGS:=-flto -ffunction-sections -fdata-sections -ffreestanding -fshort-wchar -O2  -DAPPNAME_STRING=\"$(APP_NAME)\"
 INCLUDES:=-I $(SDK_DIR)/include/
 WARNINGS:=-Wall -Wextra
 
@@ -19,7 +19,7 @@ CXX:=sh4aeb-elf-g++
 CXX_FLAGS:=-fno-exceptions -fno-rtti -Wno-write-strings $(COMMON_FLAGS) $(INCLUDES) $(WARNINGS)
 
 LD:=sh4aeb-elf-g++
-LD_FLAGS:=-m4a-nofpu -Wl,--gc-sections -Wno-undef
+LD_FLAGS:= -Wl,--gc-sections -Wno-undef
 
 READELF:=sh4aeb-elf-readelf
 OBJCOPY:=sh4aeb-elf-objcopy
