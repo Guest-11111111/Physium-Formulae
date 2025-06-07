@@ -7,7 +7,9 @@
 #include <sdk/os/input.hpp>
 #include <sdk/calc/calc.hpp>
 #include <sdk/os/string.hpp>
-#include <strings.h>
+#include <string.h>
+
+
 
 /*
  * Fill this section in with some information about your app.
@@ -23,7 +25,7 @@ APP_VERSION("1.0.0")
 double getCommandInput(){
 	char num[13]; //the command line
 	int pos = 1; //the position of the cursor in num
-	strcpy (num,">_          ");
+	String_Strcpy(num,">_          ");
 
 	struct InputEvent event;
 	while (true){

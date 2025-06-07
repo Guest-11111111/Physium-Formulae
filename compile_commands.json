@@ -1,0 +1,29 @@
+[
+  {
+    "arguments": [
+      "/toolchain/bin/sh4aeb-elf-g++",
+      "-c",
+      "-fno-exceptions",
+      "-fno-rtti",
+      "-Wno-write-strings",
+      "-flto",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-ffreestanding",
+      "-fshort-wchar",
+      "-O2",
+      "-m4a-nofpu",
+      "-DAPPNAME_STRING=\"PhysForm\"",
+      "-I",
+      "/sdk/include/",
+      "-Wall",
+      "-Wextra",
+      "-o",
+      "obj/src/main.o",
+      "src/main.cpp"
+    ],
+    "directory": "/workspaces/CPBaseTemplate",
+    "file": "/workspaces/CPBaseTemplate/src/main.cpp",
+    "output": "/workspaces/CPBaseTemplate/obj/src/main.o"
+  }
+]
