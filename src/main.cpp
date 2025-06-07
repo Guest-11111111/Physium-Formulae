@@ -16,9 +16,7 @@ APP_DESCRIPTION("Bare physics solver. Will be updated. Press [EXE] for unpause."
 APP_AUTHOR("Help_Programming")
 APP_VERSION("1.0.2")
 
-int getCommandInput();
-int FlagSelected = 1 << 3;
-int FlagEnabled = 1 << 15;
+double getCommandInput();
 
 extern "C" ;
 void main2() {
@@ -94,18 +92,17 @@ void main2() {
 			if(GPEKey == KEY_1){
 				Debug_SetCursorPosition(264,160);
 				Debug_PrintString("Mass?",0);
-				int m = getCommandInput();
+				double m = getCommandInput();
 				LCD_ClearScreen();
 				Debug_PrintString("Acceleration to Gravity, g on earth is ~9.8 m/s^2 & is exactly 9.80665 m/s^2",0);
-				int g = getCommandInput();
+				double g = getCommandInput();
 				LCD_ClearScreen();
 				Debug_PrintString("Height?",1);
-				int h = getCommandInput();
-				int GPE;
+				double h = getCommandInput();
+				double GPE;
 				GPE = g*m*h;
 				LCD_ClearScreen();
 				Debug_PrintString("Press any key to exit answer",0);
-				int d = GPE;
 				Debug_SetCursorPosition(264, 159);
 				Debug_PrintString("%d",0);
 				while(true){
@@ -121,21 +118,21 @@ void main2() {
 				Debug_SetCursorPosition(264,160);
 				Debug_PrintString("GPE=?",0);
 				LCD_Refresh();
-				int GPE = getCommandInput();
+				double GPE = getCommandInput();
         		LCD_ClearScreen();
 	        	Debug_SetCursorPosition(528,160);
     	    	Debug_PrintString("Physium Formulae-ClΔssPΔd", 0);
 	        	Debug_PrintString("Acceleration to Gravity, g on earth is ~9.8 m/s^2 & is exactly 9.80665 m/s^2",0);
     	    	LCD_Refresh();
-        		int g = getCommandInput();
+        		double g = getCommandInput();
         		LCD_ClearScreen();
         		Debug_SetCursorPosition(528,160);
         		Debug_PrintString("Physium Formulae-ClΔssPΔd", 0);
         		Debug_PrintString("Height=?",0);
         		LCD_Refresh();
-        		int h = getCommandInput();
+        		double h = getCommandInput();
         		LCD_ClearScreen();
-        		int d = (GPE /(g*h));
+        		double m = (GPE /(g*h));
         		Debug_SetCursorPosition(528,160);
         		Debug_PrintString("Physium Formulae-ClΔssPΔd", 0);
         		Debug_PrintString("Mass =",0);
@@ -169,7 +166,7 @@ void main2() {
     	Debug_SetCursorPosition(264,160);
     	Debug_PrintString("Program Terminating...",0);
     	LCD_Refresh();
-		calcEnd();
+		goto End_Main;
 	}
 						
 			//if(testkey(SMenukey, KEY_1)){
