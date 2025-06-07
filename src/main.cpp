@@ -204,10 +204,10 @@ void main2() {
         			LCD_Refresh();
         			double h = getCommandInput();
         			LCD_ClearScreen();
-        			double m = (GPE /(g*h));
         			Debug_SetCursorPosition(528,160);
 	        		Debug_PrintString("Physium Formulae-ClΔssPΔd", 0);
     	    		Debug_PrintString("Mass =",0);
+        			double m = (GPE /(g*h));
         			Debug_PrintString("%d", 0);
         			LCD_Refresh();
 	        		Debug_WaitKey();
