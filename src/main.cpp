@@ -21,7 +21,9 @@ APP_DESCRIPTION("Bare physics solver. Will be updated. Press [EXE] for unpause. 
 APP_AUTHOR("Guest-11111111")
 APP_VERSION("1.0.0")
 
-
+int Ender(){
+	return 0;
+}
 
 double getCommandInput(){
 	char num[13]; //the command line
@@ -51,14 +53,17 @@ double getCommandInput(){
 								if(num[1]=='.'){
 									Debug_SetCursorPosition(0, 0);
 									Debug_PrintString("ERROR! RESTART!", 0);
-									break;
+									Ender();
 								}else{ break;
 									num[1]='.';
+									Ender();
 								}
 							}break;
 						case KEYCODE_KEYBOARD: 
 							Debug_PrintString("ERROR! ", 0);
+							Ender();
 						case KEYCODE_SHIFT: 
+							Ender();
 							Debug_PrintString("ERROR", 1);
 					}
 				}//pos!<=8
@@ -111,10 +116,9 @@ void main2() {
     		if(testKey(key1, key2, KEY_EXE)){ // Use testKey() to test if a specific key is pressed 
     		    break;
     		}else if(testKey(key1,key2, KEY_CLEAR)){
-				break;
+				Ender();
 			};
 		}
-		Main_Menu:
 		fillScreen(color(31,64,31));
 		LCD_Refresh();
 		Debug_SetCursorPosition(0,160);
@@ -126,10 +130,6 @@ void main2() {
 		Debug_SetCursorPosition(6,2);
 		Debug_PrintString("[3] Exit",0);
 		LCD_Refresh();
-		while(true){
-			uint32_t Menukey, MenKey;
-		getKey(&Menukey, &MenKey);
-		}
 		uint32_t Menukey, MenKey;
 		getKey(&Menukey, &MenKey);
 		if(Menukey == KEY_1){
@@ -191,7 +191,7 @@ void main2() {
 						uint32_t key1, key2;    // First create variables
 						getKey(&key1, &key2);    // then read the keys
 						if(testKey(key1, key2, KEY_EXE)){ // Use testKey() to test if a specific key is pressed 
-							goto Main_Menu;
+							break;;
 						}
 					}
 				}else if(GPEKey == KEY_2){
@@ -232,7 +232,7 @@ void main2() {
     	  				uint32_t key1, key2;    // First create variables
       					getKey(&key1, &key2);    // then read the keys
       					if(testKey(key1, key2, KEY_EXE)){ // Use testKey() to test if a specific key is pressed 
-      	    			goto Main_Menu;
+      	    			break; ;
         				};
 	    			};
 				}

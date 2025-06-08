@@ -26,7 +26,7 @@ OBJCOPY:=sh4aeb-elf-objcopy
 
 SOURCEDIR = src
 BUILDDIR = obj
-OUTDIR = dist
+OUTDIR = out
 
 AS_SOURCES:=$(shell find $(SOURCEDIR) -name '*.S')
 CC_SOURCES:=$(shell find $(SOURCEDIR) -name '*.c')
