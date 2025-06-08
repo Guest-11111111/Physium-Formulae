@@ -16,8 +16,8 @@
  * All fields are optional - so if you don't need one, take it out.
  */
 APP_NAME("Physium Formulae: Physics solver")
-APP_DESCRIPTION("Bare physics solver. Will be updated. Press [EXE] for unpause. Use the action Bar's Escape/ Exit for a Program Termination.")
-APP_AUTHOR("Help_Programming")
+APP_DESCRIPTION("Bare physics solver. Will be updated. Press [EXE] for unpause. Use the action Bar Exit for ending the app.")
+APP_AUTHOR("Guest-11111111")
 APP_VERSION("1.0.0")
 
 
@@ -77,8 +77,7 @@ double getCommandInput(){
 					}//num[1]!='_'
 				}//!EXE
 			}//direction!Pressed
-		}//type!=key
-		else if(event.type==EVENT_TOUCH){
+		}else if(event.type==EVENT_TOUCH){
 			if(event.data.touch_single.direction==TOUCH_UP){
 				long y = event.data.touch_single.p1_y;
 				y = y*341 >>12; //multiply by 341 and divide by 4096 to divide by 12
@@ -91,7 +90,7 @@ double getCommandInput(){
 }
 
 extern "C" ;
-void main() {
+void main2() {
 	while (true) {
 	
 		calcInit();
