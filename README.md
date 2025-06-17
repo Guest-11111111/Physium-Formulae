@@ -2,4 +2,5 @@
 the CP Base Template, but modified for solving Physics Formulas
 
 ## Usage
-Use like a BASIC program
+Use like a basic hhk2 program
+

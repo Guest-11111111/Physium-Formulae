@@ -1,14 +1,12 @@
 
 #include <appdef.hpp>
-#include <stdio.h>
-#include <stdlib.h>
+// #include <stdlib.h>
 #include <sdk/os/lcd.hpp>
 #include <sdk/os/debug.hpp>
 #include <sdk/os/input.hpp>
 #include <sdk/calc/calc.hpp>
 #include <sdk/os/string.hpp>
 #include <string.h>
-#include <sys/_intsup.h>
 
 
 
@@ -21,11 +19,8 @@ APP_DESCRIPTION("Bare physics solver. Will be updated. Press [EXE] for unpause. 
 APP_AUTHOR("Guest-11111111")
 APP_VERSION("1.0.0")
 
-int Ender(){
-	return 0;
-}
 
-double getCommandInput(){
+float getCommandInput(){
 	char num[13]; //the command line
 	int pos = 1; //the position of the cursor in num
 	String_Strcpy(num,">_          ");
@@ -53,17 +48,18 @@ double getCommandInput(){
 								if(num[1]=='.'){
 									Debug_SetCursorPosition(0, 0);
 									Debug_PrintString("ERROR! RESTART!", 0);
-									Ender();
-								}else{ break;
+									return 0;
+								}else{ 
+									break;
 									num[1]='.';
-									Ender();
+									return 0; //Return 0.0 if the user inputs a dot at the start.
 								}
 							}break;
 						case KEYCODE_KEYBOARD: 
 							Debug_PrintString("ERROR! ", 0);
-							Ender();
+							return 0;
 						case KEYCODE_SHIFT: 
-							Ender();
+							return 0;
 							Debug_PrintString("ERROR", 1);
 					}
 				}//pos!<=8
@@ -77,7 +73,7 @@ double getCommandInput(){
 				}//!Clear
 				if(event.data.key.keyCode==KEYCODE_EXE){
 					while(num[1]!='_'&&num[1]!='.'){
-						int ret = num[1]-'0';
+						float ret = num[1]-'0';
 						int i=2;
 						while(num[i]!='_'){
 							ret = (ret*10) + (num[i]-'0');
@@ -88,18 +84,15 @@ double getCommandInput(){
 				}//!EXE
 			}//direction!Pressed
 		}else if(event.type==EVENT_TOUCH){
-			if(event.data.touch_single.direction==TOUCH_UP){
-				long y = event.data.touch_single.p1_y;
-				y = y*341 >>12; //multiply by 341 and divide by 4096 to divide by 12
-				if (y==1) return 99;
-				else return (y-2);
-
-			}//OUCH_UP
+			return 0;
 		}//EVENT_TOUCH
 	}//while (true)
 }
 
-extern "C" ;
+extern "C" {
+	#include "ugui_config.h"
+  	#include "ugui (1).h"
+};
 void main2() {		
 		calcInit();
   		fillScreen(color(31,64,31));
@@ -116,7 +109,7 @@ void main2() {
     		if(testKey(key1, key2, KEY_EXE)){ // Use testKey() to test if a specific key is pressed 
     		    break;
     		}else if(testKey(key1,key2, KEY_CLEAR)){
-				Ender();
+				break;
 			};
 		}
 		fillScreen(color(31,64,31));
@@ -173,14 +166,14 @@ void main2() {
 				if(GPEKey == KEY_1){
 					Debug_SetCursorPosition(264,160);
 					Debug_PrintString("Mass?",0);
-					double m = getCommandInput();
+					float m = getCommandInput();
 					LCD_ClearScreen();
 					Debug_PrintString("Acceleration to Gravity, g on earth is ~9.8 m/s^2 & is exactly 9.80665 m/s^2",0);
-					double g = getCommandInput();
+					float g = getCommandInput();
 					LCD_ClearScreen();
 					Debug_PrintString("Height?",1);
-					double h = getCommandInput();
-					double GPE;
+					float h = getCommandInput();
+					float GPE;
 					GPE = g*m*h;
 					LCD_ClearScreen();
 					char buf[32];
@@ -200,24 +193,24 @@ void main2() {
 					Debug_SetCursorPosition(264,160);
 					Debug_PrintString("GPE=?",0);
 					LCD_Refresh();
-					double GPE = getCommandInput();
+					float GPE = getCommandInput();
         			LCD_ClearScreen();
 	        		Debug_SetCursorPosition(528,160);
     	    		Debug_PrintString("Physium Formulae-ClassPad", 0);
 	        		Debug_PrintString("Acceleration to Gravity, g on earth is ~9.8 m/s^2 & is exactly 9.80665 m/s^2",0);
     	    		LCD_Refresh();
-        			double g = getCommandInput();
+        			float g = getCommandInput();
         			LCD_ClearScreen();
         			Debug_SetCursorPosition(528,160);
         			Debug_PrintString("Physium Formulae-ClassPad", 0);
         			Debug_PrintString("Height=?",0);
         			LCD_Refresh();
-        			double h = getCommandInput();
+        			float h = getCommandInput();
         			LCD_ClearScreen();
         			Debug_SetCursorPosition(528,160);
 	        		Debug_PrintString("Physium Formulae-ClassPad", 0);
     	    		Debug_PrintString("Mass =",0);
-					double m = (GPE /(g*h));
+					float m = (GPE /(g*h));
 					char buf[32];
 					snprintf(buf, sizeof(buf), "Mass = %.20f", m);
 					Debug_PrintString(buf, 0);
