@@ -131,6 +131,7 @@ void main2() {
 			LCD_Refresh();
 			Debug_SetCursorPosition(6,0);
       		Debug_PrintString("Physium Formulae-ClassPad", 0);
+			UG_PutString(1,30,"Main");
 			Debug_SetCursorPosition(6,2);
 			Debug_PrintString("Main Solver Menu",0);
 			Debug_SetCursorPosition(6,1);
@@ -140,7 +141,7 @@ void main2() {
 			Debug_SetCursorPosition(6,3);
 			Debug_PrintString("[3] Acceleration a = F/m",0);
 			Debug_SetCursorPosition(6,4);
-			Debug_PrintString("[4] Velocity (d/t) & direction",0);
+			Debug_PrintString("[4] WIP-DO NOT USE",0);
 			LCD_Refresh();
 			uint32_t SMenukey;
 			uint32_t Skey;
@@ -176,18 +177,19 @@ void main2() {
 					double GPE = g*m*h;
 					LCD_ClearScreen();
 					char* GPEAns = nullptr;
+					UG_PutString(160,150, "GPE = ");
 					UG_PutString(160, 264, doubleToString(GPE,GPEAns));
 					while(true){
 						uint32_t key1, key2;    // First create variables
 						getKey(&key1, &key2);    // then read the keys
 						if(testKey(key1, key2, KEY_EXE)){ // Use testKey() to test if a specific key is pressed 
-							break;;
+							break;
 						}
 					}
 				}else if(GPEKey == KEY_2){
         			Debug_SetCursorPosition(528,160);
         			Debug_PrintString("Physium Formulae-ClassPad", 0);
-					UG_PutString(160,264"GPE=?");
+					UG_PutString(160,264,"GPE=?");
 					LCD_Refresh();
 					double GPE = getCommandInput();
         			LCD_ClearScreen();
@@ -218,9 +220,20 @@ void main2() {
 					while(true){
     	  				uint32_t key1, key2;    // First create variables
       					getKey(&key1, &key2);    // then read the keys
-      					if(testKey(key1, key2, KEY_EXE)){ // Use testKey() to test if a specific key is pressed 
-      	    			break; ;
+      					if(testKey(key1, key2, KEY_EXE) or testKey(key1,key2,KEY_CLEAR)){ // Use testKey() to test if a specific key is pressed 
+      	    			break;
         				};
+	    			};
+				}else if(GPEKey == KEY_4){
+					Debug_SetCursorPosition(528,160);
+					Debug_PrintString("Physium Formulae-ClassPad", 0);
+					UG_PutString(0,0,"Unfinished Location");
+					while(true){
+		  				uint32_t key1, key2;    // First create variables
+	  					getKey(&key1, &key2);    // then read the keys
+	  					if(testKey(key1, key2, KEY_EXE)){ // Use testKey() to test if a specific key is pressed 
+	  	    			break;
+						};
 	    			};
 				}
 		
@@ -231,6 +244,10 @@ void main2() {
     		Debug_PrintString("Physium Formulae-ClassPad", 0);
     		Debug_SetCursorPosition(264,0);
 			Debug_PrintString("Formulas",0);
+			UG_PutString(160,264,"WIP");
+			while(true){
+				break;
+			};
 		}else if (Menukey == KEY_3){
     		Debug_SetCursorPosition(528,160);
     		Debug_PrintString("Physium Formulae-ClassPad", 0);
@@ -262,6 +279,5 @@ void main2() {
 		
 		
 		calcEnd();
-	
-  	
+		exit(EXIT_SUCCESS); // Exit the app with success code
 }
