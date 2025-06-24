@@ -1,14 +1,15 @@
-
+#include "doubletostring.cpp"
 #include <appdef.hpp>
-// #include <stdlib.h>
 #include <sdk/os/lcd.hpp>
 #include <sdk/os/debug.hpp>
 #include <sdk/os/input.hpp>
 #include <sdk/calc/calc.hpp>
 #include <sdk/os/string.hpp>
-#include <string.h>
 
-
+extern "C" {
+	#include "ugui_config.h"
+  	#include "ugui (1).h"
+};
 
 /*
  * Fill this section in with some information about your app.
@@ -20,7 +21,7 @@ APP_AUTHOR("Guest-11111111")
 APP_VERSION("1.0.0")
 
 
-float getCommandInput(){
+double getCommandInput(){
 	char num[13]; //the command line
 	int pos = 1; //the position of the cursor in num
 	String_Strcpy(num,">_          ");
@@ -52,7 +53,7 @@ float getCommandInput(){
 								}else{ 
 									break;
 									num[1]='.';
-									return 0; //Return 0.0 if the user inputs a dot at the start.
+									return 0.0; //Return 0.0 if the user inputs a dot at the start.
 								}
 							}break;
 						case KEYCODE_KEYBOARD: 
@@ -73,7 +74,7 @@ float getCommandInput(){
 				}//!Clear
 				if(event.data.key.keyCode==KEYCODE_EXE){
 					while(num[1]!='_'&&num[1]!='.'){
-						float ret = num[1]-'0';
+						double ret = num[1]-'0';
 						int i=2;
 						while(num[i]!='_'){
 							ret = (ret*10) + (num[i]-'0');
@@ -89,10 +90,10 @@ float getCommandInput(){
 	}//while (true)
 }
 
-extern "C" {
-	#include "ugui_config.h"
-  	#include "ugui (1).h"
-};
+#define MAX_OBJECTS 10
+
+
+
 void main2() {		
 		calcInit();
   		fillScreen(color(31,64,31));
@@ -164,22 +165,18 @@ void main2() {
 				getKey(&GPEKey, &ConfGPE);
 				LCD_Refresh();
 				if(GPEKey == KEY_1){
-					Debug_SetCursorPosition(264,160);
-					Debug_PrintString("Mass?",0);
-					float m = getCommandInput();
+					UG_PutString(160,264,"Mass?");
+					double m = getCommandInput();
 					LCD_ClearScreen();
-					Debug_PrintString("Acceleration to Gravity, g on earth is ~9.8 m/s^2 & is exactly 9.80665 m/s^2",0);
-					float g = getCommandInput();
+					UG_PutString(0,264,"Acceleration to Gravity\ng on earth is ~9.8 m/s^2\n& is exactly 9.80665 m/s^2");
+					double g = getCommandInput();
 					LCD_ClearScreen();
-					Debug_PrintString("Height?",1);
-					float h = getCommandInput();
-					float GPE;
-					GPE = g*m*h;
+					UG_PutString(160,264,"Height?");
+					double h = getCommandInput();
+					double GPE = g*m*h;
 					LCD_ClearScreen();
-					char buf[32];
-					snprintf(buf, sizeof(buf), "GPE = %.20f", GPE);
-					Debug_PrintString(buf, 0);
-					Debug_PrintString("Press any key to exit answer",1);
+					char GPEAns = char(GPE);
+					UG_PutString(160, 264, GPEAns);
 					while(true){
 						uint32_t key1, key2;    // First create variables
 						getKey(&key1, &key2);    // then read the keys
@@ -193,26 +190,26 @@ void main2() {
 					Debug_SetCursorPosition(264,160);
 					Debug_PrintString("GPE=?",0);
 					LCD_Refresh();
-					float GPE = getCommandInput();
+					double GPE = getCommandInput();
         			LCD_ClearScreen();
 	        		Debug_SetCursorPosition(528,160);
     	    		Debug_PrintString("Physium Formulae-ClassPad", 0);
 	        		Debug_PrintString("Acceleration to Gravity, g on earth is ~9.8 m/s^2 & is exactly 9.80665 m/s^2",0);
     	    		LCD_Refresh();
-        			float g = getCommandInput();
+        			double g = getCommandInput();
         			LCD_ClearScreen();
         			Debug_SetCursorPosition(528,160);
         			Debug_PrintString("Physium Formulae-ClassPad", 0);
         			Debug_PrintString("Height=?",0);
         			LCD_Refresh();
-        			float h = getCommandInput();
+        			double h = getCommandInput();
         			LCD_ClearScreen();
         			Debug_SetCursorPosition(528,160);
 	        		Debug_PrintString("Physium Formulae-ClassPad", 0);
     	    		Debug_PrintString("Mass =",0);
-					float m = (GPE /(g*h));
+					double m = (GPE /(g*h));
 					char buf[32];
-					snprintf(buf, sizeof(buf), "Mass = %.20f", m);
+					UG_PutString(buf, sizeof(buf), "Mass = %.20f", m);
 					Debug_PrintString(buf, 0);
 					LCD_Refresh();
 					Debug_WaitKey();
