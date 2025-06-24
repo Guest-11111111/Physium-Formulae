@@ -1,4 +1,4 @@
-#include "doubletostring.cpp"
+#include "doublestr.cpp"
 #include <appdef.hpp>
 #include <sdk/os/lcd.hpp>
 #include <sdk/os/debug.hpp>
@@ -175,8 +175,8 @@ void main2() {
 					double h = getCommandInput();
 					double GPE = g*m*h;
 					LCD_ClearScreen();
-					char GPEAns = char(GPE);
-					UG_PutString(160, 264, GPEAns);
+					char* GPEAns = nullptr;
+					UG_PutString(160, 264, doubleToString(GPE,GPEAns));
 					while(true){
 						uint32_t key1, key2;    // First create variables
 						getKey(&key1, &key2);    // then read the keys
@@ -208,16 +208,14 @@ void main2() {
 	        		Debug_PrintString("Physium Formulae-ClassPad", 0);
     	    		Debug_PrintString("Mass =",0);
 					double m = (GPE /(g*h));
-					char buf[32];
-					UG_PutString(buf, sizeof(buf), "Mass = %.20f", m);
-					Debug_PrintString(buf, 0);
+					char* Mass = nullptr;
+					UG_PutString(160,264,doubleToString(m,Mass));
 					LCD_Refresh();
 					Debug_WaitKey();
 				}else if(GPEKey == KEY_3){
         			Debug_SetCursorPosition(528,160);
         			Debug_PrintString("Physium Formulae-ClassPad", 0);
-        			Debug_SetCursorPosition(264, 160);
-					Debug_PrintString("PLACEHOLDER", 0);
+        			UG_PutString(0,0,"Unfinished Location");
 					while(true){
     	  				uint32_t key1, key2;    // First create variables
       					getKey(&key1, &key2);    // then read the keys
