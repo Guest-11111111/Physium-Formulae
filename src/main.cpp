@@ -16,7 +16,7 @@ extern "C" {
  * All fields are optional - so if you don't need one, take it out.
  */
 APP_NAME("Physium Formulae: Physics solver")
-APP_DESCRIPTION("Bare physics solver. Will be updated. Press [EXE] for unpause. Use the action Bar Exit for ending the app.")
+APP_DESCRIPTION("Bare physics solver. Will be updated. Press [EXE] for unpause.")
 APP_AUTHOR("Guest-11111111")
 APP_VERSION("1.0.0")
 
@@ -173,9 +173,9 @@ int main() {
 			Debug_SetCursorPosition(6,1);
 			Debug_PrintString("[1] GPE  GPE = m*g*h",0);
 			Debug_SetCursorPosition(6,2);
-			Debug_PrintString("[2] Force m*a, m*g",0);
+			Debug_PrintString("[2] WIP-Force m*a, m*g",0);
 			Debug_SetCursorPosition(6,3);
-			Debug_PrintString("[3] Acceleration a = F/m",0);
+			Debug_PrintString("[3] WIP-Acceleration a = F/m",0);
 			Debug_SetCursorPosition(6,4);
 			Debug_PrintString("[4] WIP-DO NOT USE",0);
 			LCD_Refresh();
