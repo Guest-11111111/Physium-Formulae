@@ -55,13 +55,13 @@ Archive member included to satisfy reference by file (symbol)
 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-malloc.o)
                               /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-malloc_r.o) (_free)
 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/libgcc.a(_fixdfdi.o)
-                              /home/dev/tmp//cc5FoOmr.ltrans0.ltrans.o (___fixdfdi)
+                              /home/dev/tmp//ccRdVEYi.ltrans0.ltrans.o (___fixdfdi)
 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/libgcc.a(_fixunsdfdi.o)
                               /toolchain/lib/gcc/sh4aeb-elf/13.2.0/libgcc.a(_fixdfdi.o) (___fixunsdfdi)
 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/libgcc.a(_floatdidf.o)
-                              /home/dev/tmp//cc5FoOmr.ltrans0.ltrans.o (___floatdidf)
+                              /home/dev/tmp//ccRdVEYi.ltrans0.ltrans.o (___floatdidf)
 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-abort.o)
-                              /home/dev/tmp//cc5FoOmr.ltrans0.ltrans.o (_abort)
+                              /home/dev/tmp//ccRdVEYi.ltrans0.ltrans.o (_abort)
 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-signal.o)
                               /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-abort.o) (_raise)
 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-signalr.o)
@@ -105,8 +105,8 @@ Discarded input sections
  .fini          0x0000000000000000        0xc /toolchain/lib/gcc/sh4aeb-elf/13.2.0/crtbegin.o
  .init          0x0000000000000000        0xc /toolchain/lib/gcc/sh4aeb-elf/13.2.0/crtbegin.o
  .comment       0x0000000000000000       0x24 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/crtbegin.o
- .data          0x0000000000000000        0x0 /home/dev/tmp//cc5FoOmr.ltrans0.ltrans.o
- .bss           0x0000000000000000        0x0 /home/dev/tmp//cc5FoOmr.ltrans0.ltrans.o
+ .data          0x0000000000000000        0x0 /home/dev/tmp//ccRdVEYi.ltrans0.ltrans.o
+ .bss           0x0000000000000000        0x0 /home/dev/tmp//ccRdVEYi.ltrans0.ltrans.o
  .data          0x0000000000000000        0x0 /sdk/libsdk.a(getKey.o)
  .bss           0x0000000000000000        0x0 /sdk/libsdk.a(getKey.o)
  .text          0x0000000000000000        0x0 /sdk/libsdk.a(debug.o)
@@ -520,8 +520,9 @@ LOAD /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/crt0.o
 LOAD /toolchain/lib/gcc/sh4aeb-elf/13.2.0/crt1.o
 LOAD /toolchain/lib/gcc/sh4aeb-elf/13.2.0/crti.o
 LOAD /toolchain/lib/gcc/sh4aeb-elf/13.2.0/crtbegin.o
+LOAD obj/src/ugui.o
+LOAD /home/dev/tmp//ccRdVEYi.ltrans0.ltrans.o
 LOAD obj/src/main.o
-LOAD /home/dev/tmp//cc5FoOmr.ltrans0.ltrans.o
 LOAD /sdk/libsdk.a
 LOAD /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libstdc++.a
 LOAD /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libm.a
@@ -548,127 +549,125 @@ LOAD /toolchain/lib/gcc/sh4aeb-elf/13.2.0/crtn.o
                 0x000000008cfe6010       0x21
  *(.hollyhock_name)
  .hollyhock_name
-                0x000000008cfe6010       0x21 /home/dev/tmp//cc5FoOmr.ltrans0.ltrans.o
+                0x000000008cfe6010       0x21 /home/dev/tmp//ccRdVEYi.ltrans0.ltrans.o
 
 .hollyhock_description
-                0x000000008cfe6034       0x6b
+                0x000000008cfe6034       0x3f
  *(.hollyhock_description)
  .hollyhock_description
-                0x000000008cfe6034       0x6b /home/dev/tmp//cc5FoOmr.ltrans0.ltrans.o
+                0x000000008cfe6034       0x3f /home/dev/tmp//ccRdVEYi.ltrans0.ltrans.o
 
 .hollyhock_author
-                0x000000008cfe60a0        0xf
+                0x000000008cfe6074        0xf
  *(.hollyhock_author)
  .hollyhock_author
-                0x000000008cfe60a0        0xf /home/dev/tmp//cc5FoOmr.ltrans0.ltrans.o
+                0x000000008cfe6074        0xf /home/dev/tmp//ccRdVEYi.ltrans0.ltrans.o
 
 .hollyhock_version
-                0x000000008cfe60b0        0x6
+                0x000000008cfe6084        0x6
  *(.hollyhock_version)
  .hollyhock_version
-                0x000000008cfe60b0        0x6 /home/dev/tmp//cc5FoOmr.ltrans0.ltrans.o
+                0x000000008cfe6084        0x6 /home/dev/tmp//ccRdVEYi.ltrans0.ltrans.o
 
-.bootstrap      0x000000008cfe60c0       0xe4
+.bootstrap      0x000000008cfe6090       0xe4
  *(.bootstrap.text*)
  .bootstrap.text
-                0x000000008cfe60c0       0x70 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/crt0.o
-                0x000000008cfe60f4                __exit_address
+                0x000000008cfe6090       0x70 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/crt0.o
+                0x000000008cfe60c4                __exit_address
  .bootstrap.text
-                0x000000008cfe6130       0x68 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-syscalls.o)
-                0x000000008cfe6130                _cas_setup
+                0x000000008cfe6100       0x68 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-syscalls.o)
+                0x000000008cfe6100                _cas_setup
  *(.bootstrap.data*)
  .bootstrap.data
-                0x000000008cfe6198        0xc /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-syscalls.o)
-                0x000000008cfe6198                _used_rows
-                0x000000008cfe619c                _print_row
-                0x000000008cfe619d                _print_col
-                0x000000008cfe61a0                _counter_underflows
+                0x000000008cfe6168        0xc /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-syscalls.o)
+                0x000000008cfe6168                _used_rows
+                0x000000008cfe616c                _print_row
+                0x000000008cfe616d                _print_col
+                0x000000008cfe6170                _counter_underflows
 
-.text           0x000000008cfe61a4      0xde3
+.text           0x000000008cfe6174      0xcaf
  *(.text*)
- .text          0x000000008cfe61a4      0x39c /home/dev/tmp//cc5FoOmr.ltrans0.ltrans.o
- .text.startup  0x000000008cfe6540      0x4b0 /home/dev/tmp//cc5FoOmr.ltrans0.ltrans.o
-                0x000000008cfe6540                _main
- .text          0x000000008cfe69f0       0x34 /sdk/libsdk.a(getKey.o)
-                0x000000008cfe69f0                _getKey
+ .text          0x000000008cfe6174      0x3b8 /home/dev/tmp//ccRdVEYi.ltrans0.ltrans.o
+ .text.startup  0x000000008cfe652c      0x3f8 /home/dev/tmp//ccRdVEYi.ltrans0.ltrans.o
+                0x000000008cfe652c                _main
+ .text          0x000000008cfe6924       0x34 /sdk/libsdk.a(getKey.o)
+                0x000000008cfe6924                _getKey
  .text._Z10fillScreent
-                0x000000008cfe6a24       0x34 /sdk/libsdk.a(calc.o)
-                0x000000008cfe6a24                __Z10fillScreent
- .text          0x000000008cfe6a58       0x30 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/libgcc.a(_fixdfdi.o)
-                0x000000008cfe6a58                ___fixdfdi
- .text          0x000000008cfe6a88       0x7c /toolchain/lib/gcc/sh4aeb-elf/13.2.0/libgcc.a(_fixunsdfdi.o)
-                0x000000008cfe6a88                ___fixunsdfdi
- .text          0x000000008cfe6b04       0x24 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/libgcc.a(_floatdidf.o)
-                0x000000008cfe6b04                ___floatdidf
- .text.exit     0x000000008cfe6b28       0x2c /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-exit.o)
-                0x000000008cfe6b28                _exit
+                0x000000008cfe6958       0x34 /sdk/libsdk.a(calc.o)
+                0x000000008cfe6958                __Z10fillScreent
+ .text          0x000000008cfe698c       0x30 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/libgcc.a(_fixdfdi.o)
+                0x000000008cfe698c                ___fixdfdi
+ .text          0x000000008cfe69bc       0x7c /toolchain/lib/gcc/sh4aeb-elf/13.2.0/libgcc.a(_fixunsdfdi.o)
+                0x000000008cfe69bc                ___fixunsdfdi
+ .text          0x000000008cfe6a38       0x24 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/libgcc.a(_floatdidf.o)
+                0x000000008cfe6a38                ___floatdidf
+ .text.exit     0x000000008cfe6a5c       0x2c /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-exit.o)
+                0x000000008cfe6a5c                _exit
  .text.cas_cleanup
-                0x000000008cfe6b54       0x20 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-syscalls.o)
-                0x000000008cfe6b54                _cas_cleanup
- .text._exit    0x000000008cfe6b74        0xc /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-syscalls.o)
-                0x000000008cfe6b74                __exit
- .text._kill    0x000000008cfe6b80       0x18 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-syscalls.o)
-                0x000000008cfe6b80                __kill
- .text._getpid  0x000000008cfe6b98        0x4 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-syscalls.o)
-                0x000000008cfe6b98                __getpid
+                0x000000008cfe6a88       0x20 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-syscalls.o)
+                0x000000008cfe6a88                _cas_cleanup
+ .text._exit    0x000000008cfe6aa8        0xc /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-syscalls.o)
+                0x000000008cfe6aa8                __exit
+ .text._kill    0x000000008cfe6ab4       0x18 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-syscalls.o)
+                0x000000008cfe6ab4                __kill
+ .text._getpid  0x000000008cfe6acc        0x4 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-syscalls.o)
+                0x000000008cfe6acc                __getpid
  .text.__call_exitprocs
-                0x000000008cfe6b9c      0x100 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-__call_atexit.o)
-                0x000000008cfe6b9c                ___call_exitprocs
- .text.__errno  0x000000008cfe6c9c        0xc /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-errno.o)
-                0x000000008cfe6c9c                ___errno
- .text.abort    0x000000008cfe6ca8       0x18 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-abort.o)
-                0x000000008cfe6ca8                _abort
+                0x000000008cfe6ad0      0x100 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-__call_atexit.o)
+                0x000000008cfe6ad0                ___call_exitprocs
+ .text.__errno  0x000000008cfe6bd0        0xc /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-errno.o)
+                0x000000008cfe6bd0                ___errno
+ .text.abort    0x000000008cfe6bdc       0x18 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-abort.o)
+                0x000000008cfe6bdc                _abort
  .text._raise_r
-                0x000000008cfe6cc0       0x6c /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-signal.o)
-                0x000000008cfe6cc0                __raise_r
- .text.raise    0x000000008cfe6d2c       0x14 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-signal.o)
-                0x000000008cfe6d2c                _raise
- .text._kill_r  0x000000008cfe6d40       0x34 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-signalr.o)
-                0x000000008cfe6d40                __kill_r
+                0x000000008cfe6bf4       0x6c /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-signal.o)
+                0x000000008cfe6bf4                __raise_r
+ .text.raise    0x000000008cfe6c60       0x14 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-signal.o)
+                0x000000008cfe6c60                _raise
+ .text._kill_r  0x000000008cfe6c74       0x34 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-signalr.o)
+                0x000000008cfe6c74                __kill_r
  .text._getpid_r
-                0x000000008cfe6d74        0xc /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-signalr.o)
-                0x000000008cfe6d74                __getpid_r
+                0x000000008cfe6ca8        0xc /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-signalr.o)
+                0x000000008cfe6ca8                __getpid_r
  *(.rodata*)
  .rodata.str1.4
-                0x000000008cfe6d80      0x207 /home/dev/tmp//cc5FoOmr.ltrans0.ltrans.o
-                                        0x213 (size before relaxing)
+                0x000000008cfe6cb4      0x16f /home/dev/tmp//ccRdVEYi.ltrans0.ltrans.o
+                                        0x17b (size before relaxing)
 
-.rela.dyn       0x000000008cfe6f88        0x0
+.rela.dyn       0x000000008cfe6e24        0x0
  .rela.bootstrap.text
-                0x000000008cfe6f88        0x0 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/crt0.o
- .rela.text.startup
-                0x000000008cfe6f88        0x0 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/crt0.o
+                0x000000008cfe6e24        0x0 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/crt0.o
 
-.data           0x000000008cfe6f88       0x50
+.data           0x000000008cfe6e24       0x50
  *(.data*)
  .data._impure_ptr
-                0x000000008cfe6f88        0x4 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-impure.o)
-                0x000000008cfe6f88                __impure_ptr
+                0x000000008cfe6e24        0x4 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-impure.o)
+                0x000000008cfe6e24                __impure_ptr
  .data._impure_data
-                0x000000008cfe6f8c       0x4c /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-impure.o)
-                0x000000008cfe6f8c                __impure_data
-                0x000000008cfe6fd8                _edata = .
+                0x000000008cfe6e28       0x4c /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-impure.o)
+                0x000000008cfe6e28                __impure_data
+                0x000000008cfe6e74                _edata = .
                 [!provide]                        PROVIDE (edata = .)
 
-.bss            0x000000008cfe6fd8      0x150
+.bss            0x000000008cfe6e74      0x150
  *(.bss*)
- .bss.height    0x000000008cfe6fd8        0x4 /sdk/libsdk.a(calc.o)
-                0x000000008cfe6fd8                _height
- .bss.width     0x000000008cfe6fdc        0x4 /sdk/libsdk.a(calc.o)
-                0x000000008cfe6fdc                _width
- .bss.vram      0x000000008cfe6fe0        0x4 /sdk/libsdk.a(calc.o)
-                0x000000008cfe6fe0                _vram
- .bss.__sf      0x000000008cfe6fe4      0x138 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-findfp.o)
-                0x000000008cfe6fe4                ___sf
+ .bss.height    0x000000008cfe6e74        0x4 /sdk/libsdk.a(calc.o)
+                0x000000008cfe6e74                _height
+ .bss.width     0x000000008cfe6e78        0x4 /sdk/libsdk.a(calc.o)
+                0x000000008cfe6e78                _width
+ .bss.vram      0x000000008cfe6e7c        0x4 /sdk/libsdk.a(calc.o)
+                0x000000008cfe6e7c                _vram
+ .bss.__sf      0x000000008cfe6e80      0x138 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-findfp.o)
+                0x000000008cfe6e80                ___sf
  .bss.__stdio_exit_handler
-                0x000000008cfe711c        0x4 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-findfp.o)
-                0x000000008cfe711c                ___stdio_exit_handler
- .bss.errno     0x000000008cfe7120        0x4 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-reent.o)
-                0x000000008cfe7120                _errno
- .bss.__atexit  0x000000008cfe7124        0x4 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-__call_atexit.o)
-                0x000000008cfe7124                ___atexit
+                0x000000008cfe6fb8        0x4 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-findfp.o)
+                0x000000008cfe6fb8                ___stdio_exit_handler
+ .bss.errno     0x000000008cfe6fbc        0x4 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-reent.o)
+                0x000000008cfe6fbc                _errno
+ .bss.__atexit  0x000000008cfe6fc0        0x4 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-__call_atexit.o)
+                0x000000008cfe6fc0                ___atexit
  *(COMMON)
-                0x000000008cfe7128                _end = .
+                0x000000008cfe6fc4                _end = .
                 [!provide]                        PROVIDE (end = .)
 
 .eh_frame
@@ -676,7 +675,7 @@ LOAD /toolchain/lib/gcc/sh4aeb-elf/13.2.0/crtn.o
 OUTPUT(out/PhysForm.elf elf32-sh)
 
 .comment        0x0000000000000000       0x23
- .comment       0x0000000000000000       0x24 /home/dev/tmp//cc5FoOmr.ltrans0.ltrans.o
+ .comment       0x0000000000000000       0x24 /home/dev/tmp//ccRdVEYi.ltrans0.ltrans.o
  .comment       0x0000000000000000       0x23 /sdk/libsdk.a(calc.o)
                                          0x24 (size before relaxing)
  .comment       0x0000000000000023       0x24 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/libgcc.a(_fixdfdi.o)
