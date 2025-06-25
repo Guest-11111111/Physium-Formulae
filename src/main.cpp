@@ -1,4 +1,4 @@
-#include "doublestr.cpp"
+
 #include <appdef.hpp>
 #include <sdk/os/lcd.hpp>
 #include <sdk/os/debug.hpp>
@@ -88,6 +88,42 @@ double getCommandInput(){
 			return 0;
 		}//EVENT_TOUCH
 	}//while (true)
+}
+
+char* doubleToString(double value, char* buffer, int precision = 1000000000) {
+    // Basic implementation for positive numbers and limited precision
+    long long intPart = static_cast<long long>(value);
+    double fracPart = value - intPart;
+
+    int i = 0;
+    // Convert integer part
+    if (intPart == 0) {
+        buffer[i++] = '0';
+    } else {
+        // Reverse digits
+        char temp[20]; // Temporary buffer for digits
+        int k = 0;
+        while (intPart > 0) {
+            temp[k++] = (intPart % 10) + '0';
+            intPart /= 10;
+        }
+        while (k > 0) {
+            buffer[i++] = temp[--k];
+        }
+    }
+
+    // Add decimal point and fractional part (simplified)
+    if (precision > 0) {
+        buffer[i++] = '.';
+        for (int p = 0; p < precision; ++p) {
+            fracPart *= 10;
+            int digit = static_cast<int>(fracPart);
+            buffer[i++] = digit + '0';
+            fracPart -= digit;
+        }
+    }
+    buffer[i] = '\0'; // Null-terminate the string
+    return buffer;
 }
 
 #define MAX_OBJECTS 10
@@ -212,7 +248,13 @@ void main2() {
 					char* Mass = nullptr;
 					UG_PutString(160,264,doubleToString(m,Mass));
 					LCD_Refresh();
-					Debug_WaitKey();
+					while(true){
+    	  				uint32_t key1, key2;    // First create variables
+      					getKey(&key1, &key2);    // then read the keys
+      					if(testKey(key1, key2, KEY_EXE) or testKey(key1,key2,KEY_CLEAR)){ // Use testKey() to test if a specific key is pressed 
+      	    			break;
+        				};
+	    			};
 				}else if(GPEKey == KEY_3){
         			Debug_SetCursorPosition(0,160);
         			Debug_PrintString("Physium Formulae-ClassPad", 0);

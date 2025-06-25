@@ -93,9 +93,9 @@ Discarded input sections
  .fini          0x0000000000000000        0xc /toolchain/lib/gcc/sh4aeb-elf/13.2.0/crtbegin.o
  .init          0x0000000000000000        0xc /toolchain/lib/gcc/sh4aeb-elf/13.2.0/crtbegin.o
  .comment       0x0000000000000000       0x24 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/crtbegin.o
- .text          0x0000000000000000        0x0 /home/dev/tmp//ccLx1py1.ltrans0.ltrans.o
- .data          0x0000000000000000        0x0 /home/dev/tmp//ccLx1py1.ltrans0.ltrans.o
- .bss           0x0000000000000000        0x0 /home/dev/tmp//ccLx1py1.ltrans0.ltrans.o
+ .text          0x0000000000000000        0x0 /home/dev/tmp//ccQnutJn.ltrans0.ltrans.o
+ .data          0x0000000000000000        0x0 /home/dev/tmp//ccQnutJn.ltrans0.ltrans.o
+ .bss           0x0000000000000000        0x0 /home/dev/tmp//ccQnutJn.ltrans0.ltrans.o
  .text          0x0000000000000000       0x34 /sdk/libsdk.a(getKey.o)
  .data          0x0000000000000000        0x0 /sdk/libsdk.a(getKey.o)
  .bss           0x0000000000000000        0x0 /sdk/libsdk.a(getKey.o)
@@ -529,8 +529,7 @@ LOAD /toolchain/lib/gcc/sh4aeb-elf/13.2.0/crt1.o
 LOAD /toolchain/lib/gcc/sh4aeb-elf/13.2.0/crti.o
 LOAD /toolchain/lib/gcc/sh4aeb-elf/13.2.0/crtbegin.o
 LOAD obj/src/main.o
-LOAD /home/dev/tmp//ccLx1py1.ltrans0.ltrans.o
-LOAD obj/src/doublestr.o
+LOAD /home/dev/tmp//ccQnutJn.ltrans0.ltrans.o
 LOAD /sdk/libsdk.a
 LOAD /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libstdc++.a
 LOAD /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libm.a
@@ -557,25 +556,25 @@ LOAD /toolchain/lib/gcc/sh4aeb-elf/13.2.0/crtn.o
                 0x000000008cfe6010       0x21
  *(.hollyhock_name)
  .hollyhock_name
-                0x000000008cfe6010       0x21 /home/dev/tmp//ccLx1py1.ltrans0.ltrans.o
+                0x000000008cfe6010       0x21 /home/dev/tmp//ccQnutJn.ltrans0.ltrans.o
 
 .hollyhock_description
                 0x000000008cfe6034       0x6b
  *(.hollyhock_description)
  .hollyhock_description
-                0x000000008cfe6034       0x6b /home/dev/tmp//ccLx1py1.ltrans0.ltrans.o
+                0x000000008cfe6034       0x6b /home/dev/tmp//ccQnutJn.ltrans0.ltrans.o
 
 .hollyhock_author
                 0x000000008cfe60a0        0xf
  *(.hollyhock_author)
  .hollyhock_author
-                0x000000008cfe60a0        0xf /home/dev/tmp//ccLx1py1.ltrans0.ltrans.o
+                0x000000008cfe60a0        0xf /home/dev/tmp//ccQnutJn.ltrans0.ltrans.o
 
 .hollyhock_version
                 0x000000008cfe60b0        0x6
  *(.hollyhock_version)
  .hollyhock_version
-                0x000000008cfe60b0        0x6 /home/dev/tmp//ccLx1py1.ltrans0.ltrans.o
+                0x000000008cfe60b0        0x6 /home/dev/tmp//ccQnutJn.ltrans0.ltrans.o
 
 .bootstrap      0x000000008cfe60c0       0xe4
  *(.bootstrap.text*)
@@ -632,7 +631,7 @@ LOAD /toolchain/lib/gcc/sh4aeb-elf/13.2.0/crtn.o
 OUTPUT(out/PhysForm.elf elf32-sh)
 
 .comment        0x0000000000000000       0x23
- .comment       0x0000000000000000       0x24 /home/dev/tmp//ccLx1py1.ltrans0.ltrans.o
+ .comment       0x0000000000000000       0x24 /home/dev/tmp//ccQnutJn.ltrans0.ltrans.o
  .comment       0x0000000000000000       0x23 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-exit.o)
                                          0x24 (size before relaxing)
  .comment       0x0000000000000023       0x24 /toolchain/lib/gcc/sh4aeb-elf/13.2.0/../../../../sh4aeb-elf/lib/libc.a(libc_a-findfp.o)
