@@ -187,25 +187,25 @@ void main2() {
 						}
 					}
 				}else if(GPEKey == KEY_2){
-        			Debug_SetCursorPosition(528,160);
+        			Debug_SetCursorPosition(0,160);
         			Debug_PrintString("Physium Formulae-ClassPad", 0);
 					UG_PutString(160,264,"GPE=?");
 					LCD_Refresh();
 					double GPE = getCommandInput();
         			LCD_ClearScreen();
-	        		Debug_SetCursorPosition(528,160);
+	        		Debug_SetCursorPosition(0,160);
     	    		Debug_PrintString("Physium Formulae-ClassPad", 0);
 	        		UG_PutString(160,264,"Acceleration to Gravity\ng on earth is ~9.8 m/s^2\n& is exactly 9.80665 m/s^2");
     	    		LCD_Refresh();
         			double g = getCommandInput();
         			LCD_ClearScreen();
-        			Debug_SetCursorPosition(528,160);
+        			Debug_SetCursorPosition(0,160);
         			Debug_PrintString("Physium Formulae-ClassPad", 0);
         			UG_PutString(160,264,"Height=?");
         			LCD_Refresh();
         			double h = getCommandInput();
         			LCD_ClearScreen();
-        			Debug_SetCursorPosition(528,160);
+        			Debug_SetCursorPosition(0,160);
 	        		Debug_PrintString("Physium Formulae-ClassPad", 0);
     	    		UG_PutString(160,264,"Mass =");
 					double m = (GPE /(g*h));
@@ -214,7 +214,7 @@ void main2() {
 					LCD_Refresh();
 					Debug_WaitKey();
 				}else if(GPEKey == KEY_3){
-        			Debug_SetCursorPosition(528,160);
+        			Debug_SetCursorPosition(0,160);
         			Debug_PrintString("Physium Formulae-ClassPad", 0);
         			UG_PutString(0,0,"Unfinished Location");
 					while(true){
@@ -225,7 +225,7 @@ void main2() {
         				};
 	    			};
 				}else if(GPEKey == KEY_4){
-					Debug_SetCursorPosition(528,160);
+					Debug_SetCursorPosition(0,160);
 					Debug_PrintString("Physium Formulae-ClassPad", 0);
 					UG_PutString(0,0,"Unfinished Location");
 					while(true){
@@ -240,7 +240,7 @@ void main2() {
 			}
 					
 		}else if (Menukey == KEY_2){
-	    	Debug_SetCursorPosition(528,160);
+	    	Debug_SetCursorPosition(0,160);
     		Debug_PrintString("Physium Formulae-ClassPad", 0);
     		Debug_SetCursorPosition(264,0);
 			Debug_PrintString("Formulas",0);
@@ -249,7 +249,7 @@ void main2() {
 				break;
 			};
 		}else if (Menukey == KEY_3){
-    		Debug_SetCursorPosition(528,160);
+    		Debug_SetCursorPosition(0,160);
     		Debug_PrintString("Physium Formulae-ClassPad", 0);
     		Debug_SetCursorPosition(264,160);
     		Debug_PrintString("Program Terminating...",0);
@@ -279,5 +279,4 @@ void main2() {
 		
 		
 		calcEnd();
-		exit(EXIT_SUCCESS); // Exit the app with success code
 }
