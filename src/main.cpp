@@ -130,7 +130,7 @@ char* doubleToString(double value, char* buffer, int precision = 1000000000) {
 
 
 
-void main2() {		
+int main() {		
 		calcInit();
   		fillScreen(color(31,64,31));
   		LCD_Refresh();
@@ -318,7 +318,8 @@ void main2() {
 		//case KEY_3:
 		//	return 0;
 
-		
+		return 0;
 		
 		calcEnd();
+		
 }
