@@ -5,8 +5,8 @@
 #include <sdk/os/input.hpp>
 
 extern "C" {
-  #include "ugui_config.h"
-  #include "ugui (1).h"
+  #include "src/ugui_config.h"
+  #include "src/ugui (1).h"
 };
 
 
@@ -16,7 +16,7 @@ APP_AUTHOR("s3ansh33p")
 APP_VERSION("1.0.0")
 
 extern "C" {
-  #include "ugui (1).h"
+  #include "src/ugui (1).h"
 };
 
 // wrapper for setPixel

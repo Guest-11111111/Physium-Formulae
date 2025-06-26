@@ -21,6 +21,7 @@ APP_AUTHOR("Guest-11111111")
 APP_VERSION("1.0.0")
 
 
+
 double getCommandInput(){
 	char num[13]; //the command line
 	int pos = 1; //the position of the cursor in num
@@ -126,12 +127,22 @@ char* doubleToString(double value, char* buffer, int precision = 1000000000) {
     return buffer;
 }
 
+void UGWrapper(UG_S16 x, UG_S16 y, UG_COLOR color) {
+	setPixel(x, y, color);
+}
+void guiInit(UG_GUI* gui,UG_S16 width, UG_S16 height) {
+	UG_Init(gui, nullptr, width, height);
+}
+
 #define MAX_OBJECTS 10
 
-
+UG_GUI gui;
+UG_S16 x = 320; // Width of the screen
+UG_S16 y = 520; // Height of the screen
 
 int main() {		
 		calcInit();
+		guiInit(&gui,x,y);
   		fillScreen(color(31,64,31));
   		LCD_Refresh();
   		Debug_SetCursorPosition(264,160);
