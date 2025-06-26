@@ -9,4 +9,4 @@ USER dev
 RUN mkdir ~/tmp
 RUN wget https://raw.githubusercontent.com/ClasspadDev/faq/main/faq.md -O faq
 
-RUN echo -e "echo \"$(tput setaf 2)\n\n      Welcome to the ClassPad SDK ! \n                You can build using \"make bin\"\n                Check the faq \"cat ~/faq\"\n\n$(tput sgr0)\"" >> ~/.bashrc\n                Run make and compiling should begin\n
+RUN echo -e "echo \"$(tput setaf 2)\n\n      Welcome to the ClassPad SDK ! \n                You can build using \"make bin\"\n                Check the faq \"cat ~/faq\n                Run make and compiling should begin\n"\n\n$(tput sgr0)\"" >> ~/.bashrc\n
