@@ -182,17 +182,14 @@ int main() {
 		if(Menukey == KEY_1){
 			fillScreen(color(31,63,31));
 			LCD_Refresh();
-			Debug_SetCursorPosition(6,0);
+			Debug_SetCursorPosition(1,0);
       		Debug_PrintString("Physium Formulae-ClassPad", 0);
-			UG_PutString(1,30,"Main");
-			Debug_SetCursorPosition(6,2);
-			Debug_PrintString("Main Solver Menu",0);
-			Debug_SetCursorPosition(6,1);
-			Debug_PrintString("[1] GPE  GPE = m*g*h",0);
-			Debug_SetCursorPosition(6,2);
-			Debug_PrintString("[2] WIP-Force m*a, m*g",0);
-			Debug_SetCursorPosition(6,3);
-			Debug_PrintString("[3] WIP-Acceleration a = F/m",0);
+			uint32_t k1, k2;
+			getKey(&k1, &k2);
+			UG_PutString(1,30,"Main Solver Menu");
+			UG_PutString(1,47,"[1] GPE  GPE = m*g*h");
+			UG_PutString(1,64,"[2] Force m*a, WIP- m*g");
+			UG_PutString(1,81,"[3] WIP-Acceleration a = F/m");
 			Debug_SetCursorPosition(6,4);
 			Debug_PrintString("[4] WIP-DO NOT USE",0);
 			LCD_Refresh();
