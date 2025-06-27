@@ -2,6 +2,7 @@
 *.o
 *.hhk
 *.bin
+*.elf
 dist
 
 # some temporary files under wsl

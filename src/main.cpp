@@ -134,15 +134,21 @@ void guiInit(UG_GUI* gui,UG_S16 width, UG_S16 height) {
 	UG_Init(gui, nullptr, width, height);
 }
 
+
+
 #define MAX_OBJECTS 10
 
 UG_GUI gui;
 UG_S16 x = 320; // Width of the screen
 UG_S16 y = 520; // Height of the screen
 
+void ProgInit(){
+	guiInit(&gui, x,y);
+	calcInit();
+}
+
 int main() {		
-		calcInit();
-		guiInit(&gui,x,y);
+		ProgInit();
   		fillScreen(color(31,64,31));
   		LCD_Refresh();
   		Debug_SetCursorPosition(264,160);
