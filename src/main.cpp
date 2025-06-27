@@ -272,13 +272,26 @@ int main() {
 				}else if(GPEKey == KEY_3){
         			Debug_SetCursorPosition(0,160);
         			Debug_PrintString("Physium Formulae-ClassPad", 0);
-        			UG_PutString(0,0,"Unfinished Location");
+        			UG_PutString(160,264,"GPE = ?");
+					double GPE = getCommandInput();
+					LCD_ClearScreen();
+					Debug_SetCursorPosition(0,160);
+        			Debug_PrintString("Physium Formulae-ClassPad", 0);
+        			UG_PutString(160,264,"Mass = ?");
+					double Mass = getCommandInput();
+					LCD_ClearScreen();
+					Debug_SetCursorPosition(0,160);
+        			Debug_PrintString("Physium Formulae-ClassPad", 0);
+        			UG_PutString(160,264,"Height = ?");
+					double Height = getCommandInput();
+					LCD_ClearScreen();
+					double g = GPE / (Mass * Height);
+					char* gAns = nullptr;
+					UG_PutString(160,264,doubleToString(g,gAns));
 					while(true){
     	  				uint32_t key1, key2;    // First create variables
       					getKey(&key1, &key2);    // then read the keys
-      					if(testKey(key1, key2, KEY_EXE) or testKey(key1,key2,KEY_CLEAR)){ // Use testKey() to test if a specific key is pressed 
-      	    			break;
-        				};
+						break;
 	    			};
 				}else if(GPEKey == KEY_4){
 					Debug_SetCursorPosition(0,160);
@@ -286,10 +299,8 @@ int main() {
 					UG_PutString(0,0,"Unfinished Location");
 					while(true){
 		  				uint32_t key1, key2;    // First create variables
-	  					getKey(&key1, &key2);    // then read the keys
-	  					if(testKey(key1, key2, KEY_EXE)){ // Use testKey() to test if a specific key is pressed 
-	  	    			break;
-						};
+	  					getKey(&key1, &key2);
+						break; // Break the loop to exit the program
 	    			};
 				}
 		
@@ -298,9 +309,11 @@ int main() {
 		}else if (Menukey == KEY_2){
 	    	Debug_SetCursorPosition(0,160);
     		Debug_PrintString("Physium Formulae-ClassPad", 0);
-    		Debug_SetCursorPosition(264,0);
+    		Debug_SetCursorPosition(160,0);
 			Debug_PrintString("Formulas",0);
-			UG_PutString(160,264,"WIP");
+			UG_PutString(320,264,"WIP");
+			UG_PutString(160,40,"GPE = mass * accel. to grav. * height");
+			UG_PutString(160,80,"F = Mass * Acceleration");
 			while(true){
 				break;
 			};
@@ -313,7 +326,6 @@ int main() {
 			while(true){
 				break;
 			}
-			
 		}
 						
 			//if(testkey(SMenukey, KEY_1)){
