@@ -1,2 +1,3 @@
 Welcome to the Classpad SDK !
 You can compile your app using "make bin"
+Running make should also do the trick
