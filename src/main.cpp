@@ -20,7 +20,10 @@ APP_DESCRIPTION("Bare physics solver. Will be updated. Press [EXE] for unpause."
 APP_AUTHOR("Guest-11111111")
 APP_VERSION("1.0.0")
 
-
+void UPD(){
+	UG_Update();
+	LCD_Refresh();
+}
 
 double getCommandInput(){
 	char num[13]; //the command line
@@ -29,7 +32,7 @@ double getCommandInput(){
 
 	struct InputEvent event;
 	while (true){
-		Debug_Printf(0,43,false,0,"%s",num); LCD_Refresh();
+		Debug_Printf(0,43,false,0,"%s",num); UPD();
 		GetInput(&event,0xFFFFFFFF,0x10);
 		if(event.type==EVENT_KEY){
 			if(event.data.key.direction==KEY_PRESSED){
@@ -50,6 +53,7 @@ double getCommandInput(){
 								if(num[1]=='.'){
 									Debug_SetCursorPosition(0, 0);
 									Debug_PrintString("ERROR! RESTART!", 0);
+									UPD();
 									return 0;
 								}else{ 
 									break;
@@ -58,11 +62,11 @@ double getCommandInput(){
 								}
 							}break;
 						case KEYCODE_KEYBOARD: 
+							UPD();
 							Debug_PrintString("ERROR! ", 0);
 							return 0;
 						case KEYCODE_SHIFT: 
 							return 0;
-							Debug_PrintString("ERROR", 1);
 					}
 				}//pos!<=8
 				if (pos>1){ //If there are chars you can delete one.
@@ -89,6 +93,10 @@ double getCommandInput(){
 			return 0;
 		}//EVENT_TOUCH
 	}//while (true)
+}
+
+void cls(){
+	LCD_ClearScreen();
 }
 
 char* doubleToString(double value, char* buffer, int precision = 1000000000) {
@@ -150,13 +158,12 @@ void ProgInit(){
 int main() {		
 		ProgInit();
   		fillScreen(color(31,64,31));
-  		LCD_Refresh();
+  		UPD();
   		Debug_SetCursorPosition(264,160);
 		Debug_PrintString("Physium Formulae",0);
 		Debug_SetCursorPosition(263, 160);
 		Debug_PrintString("ClassPad",0);
-		LCD_Refresh();
-		Debug_WaitKey();
+		UPD();
 		while(true){
     		uint32_t key1, key2;    // First create variables
     		getKey(&key1, &key2);    // then read the keys
@@ -167,7 +174,7 @@ int main() {
 			};
 		}
 		fillScreen(color(31,64,31));
-		LCD_Refresh();
+		UPD();
 		Debug_SetCursorPosition(0,160);
   		Debug_PrintString("Physium Formulae-ClassPad", 0);
 		Debug_SetCursorPosition(6,1);
@@ -176,27 +183,28 @@ int main() {
 		Debug_PrintString("[2] Formulas",0);
 		Debug_SetCursorPosition(6,2);
 		Debug_PrintString("[3] Exit",0);
-		LCD_Refresh();
+		UPD();
 		uint32_t Menukey, MenKey;
 		getKey(&Menukey, &MenKey);
 		if(Menukey == KEY_1){
 			fillScreen(color(31,63,31));
-			LCD_Refresh();
+			UPD();
 			Debug_SetCursorPosition(1,0);
       		Debug_PrintString("Physium Formulae-ClassPad", 0);
 			uint32_t k1, k2;
 			getKey(&k1, &k2);
 			UG_PutString(1,30,"Main Solver Menu");
 			UG_PutString(1,47,"[1] GPE  GPE = m*g*h");
-			UG_PutString(1,64,"[2] Force m*a, WIP- m*g");
-			UG_PutString(1,81,"[3] WIP-Acceleration a = F/m");
+			UG_PutString(1,64,"[2] Force F = m*a ");
+			UG_PutString(1,81,"[3] Fg = m*g");
+			UG_PutString(1,98,"[4] WIP-Acceleration a = F/m");
 			Debug_SetCursorPosition(6,4);
-			Debug_PrintString("[4] WIP-DO NOT USE",0);
-			LCD_Refresh();
+			Debug_PrintString("[5] WIP-DO NOT USE",0);
+			UPD();
 			uint32_t SMenukey;
 			uint32_t Skey;
 			getKey(&SMenukey, &Skey);
-			LCD_Refresh();
+			UPD();
 			if(SMenukey == KEY_1){
       			Debug_SetCursorPosition(0,160);
       			Debug_PrintString("Physium Formulae-ClassPad", 0);
@@ -210,25 +218,29 @@ int main() {
 				Debug_PrintString("[3] Acceleration to Gravity",0);
 				Debug_SetCursorPosition(6,4);
 				Debug_PrintString("[4] Height",0);
-				LCD_Refresh();
+				UPD();
 				uint32_t GPEKey;
 				uint32_t ConfGPE;
 				getKey(&GPEKey, &ConfGPE);
-				LCD_Refresh();
+				UPD();
 				if(GPEKey == KEY_1){
 					UG_PutString(160,264,"Mass?");
+					UPD();
 					double m = getCommandInput();
-					LCD_ClearScreen();
+					cls();
 					UG_PutString(0,264,"Acceleration to Gravity\ng on earth is ~9.8 m/s^2\n& is exactly 9.80665 m/s^2");
+					UPD();
 					double g = getCommandInput();
-					LCD_ClearScreen();
+					cls();
 					UG_PutString(160,264,"Height?");
+					UPD();
 					double h = getCommandInput();
 					double GPE = g*m*h;
-					LCD_ClearScreen();
+					cls();
 					char* GPEAns = nullptr;
 					UG_PutString(160,150, "GPE = ");
 					UG_PutString(160, 264, doubleToString(GPE,GPEAns));
+					UPD();
 					while(true){
 						uint32_t key1, key2;    // First create variables
 						getKey(&key1, &key2);    // then read the keys
@@ -240,28 +252,28 @@ int main() {
         			Debug_SetCursorPosition(0,160);
         			Debug_PrintString("Physium Formulae-ClassPad", 0);
 					UG_PutString(160,264,"GPE=?");
-					LCD_Refresh();
+					UPD();
 					double GPE = getCommandInput();
-        			LCD_ClearScreen();
+        			cls();
 	        		Debug_SetCursorPosition(0,160);
     	    		Debug_PrintString("Physium Formulae-ClassPad", 0);
 	        		UG_PutString(160,264,"Acceleration to Gravity\ng on earth is ~9.8 m/s^2\n& is exactly 9.80665 m/s^2");
-    	    		LCD_Refresh();
+    	    		UPD();
         			double g = getCommandInput();
-        			LCD_ClearScreen();
+        			cls();
         			Debug_SetCursorPosition(0,160);
         			Debug_PrintString("Physium Formulae-ClassPad", 0);
         			UG_PutString(160,264,"Height=?");
-        			LCD_Refresh();
+        			UPD();
         			double h = getCommandInput();
-        			LCD_ClearScreen();
+        			cls();
         			Debug_SetCursorPosition(0,160);
 	        		Debug_PrintString("Physium Formulae-ClassPad", 0);
     	    		UG_PutString(160,264,"Mass =");
 					double m = (GPE /(g*h));
 					char* Mass = nullptr;
 					UG_PutString(160,264,doubleToString(m,Mass));
-					LCD_Refresh();
+					UPD();
 					while(true){
     	  				uint32_t key1, key2;    // First create variables
       					getKey(&key1, &key2);    // then read the keys
@@ -273,21 +285,26 @@ int main() {
         			Debug_SetCursorPosition(0,160);
         			Debug_PrintString("Physium Formulae-ClassPad", 0);
         			UG_PutString(160,264,"GPE = ?");
+					UPD();
 					double GPE = getCommandInput();
-					LCD_ClearScreen();
+					cls();
 					Debug_SetCursorPosition(0,160);
         			Debug_PrintString("Physium Formulae-ClassPad", 0);
         			UG_PutString(160,264,"Mass = ?");
+					UPD();
 					double Mass = getCommandInput();
-					LCD_ClearScreen();
+					cls();
 					Debug_SetCursorPosition(0,160);
         			Debug_PrintString("Physium Formulae-ClassPad", 0);
         			UG_PutString(160,264,"Height = ?");
+					UPD();
 					double Height = getCommandInput();
-					LCD_ClearScreen();
+					cls();
 					double g = GPE / (Mass * Height);
 					char* gAns = nullptr;
-					UG_PutString(160,264,doubleToString(g,gAns));
+					UG_PutString(160,264,"Acceleration to Gravity =");
+					UG_PutString(160,298,doubleToString(g,gAns));
+					UPD();
 					while(true){
     	  				uint32_t key1, key2;    // First create variables
       					getKey(&key1, &key2);    // then read the keys
@@ -296,7 +313,23 @@ int main() {
 				}else if(GPEKey == KEY_4){
 					Debug_SetCursorPosition(0,160);
 					Debug_PrintString("Physium Formulae-ClassPad", 0);
-					UG_PutString(0,0,"Unfinished Location");
+					UG_PutString(160,264,"GPE = ?");
+					UPD();
+					double GPE = getCommandInput();
+					cls();
+					UG_PutString(160,264,"Mass = ?");
+					UPD();
+					double Mass = getCommandInput();
+					cls();
+					UG_PutString(160,264,"Acceleration to Gravity\ng on earth is ~9.8 m/s^2\n& is exactly 9.80665 m/s^2");
+					UPD();
+					double g = getCommandInput();
+					cls();
+					double Height = GPE / (Mass * g);
+					char* HeightAns = nullptr;
+					UG_PutString(160,264,"Height =");
+					UG_PutString(160,298,doubleToString(Height,HeightAns));
+					UPD();
 					while(true){
 		  				uint32_t key1, key2;    // First create variables
 	  					getKey(&key1, &key2);
@@ -304,9 +337,102 @@ int main() {
 	    			};
 				}
 		
+			} else if(SMenukey == KEY_2){
+				Debug_SetCursorPosition(0,160);
+				Debug_PrintString("Physium Formulae-ClassPad", 0);
+				Debug_SetCursorPosition(6,0);
+				Debug_PrintString("Force Solver Submenu",0);
+				Debug_SetCursorPosition(6,1);
+				Debug_PrintString("[1] Force",0);
+				Debug_SetCursorPosition(6,2);
+				Debug_PrintString("[2] Mass",0);
+				Debug_SetCursorPosition(6,3);
+				Debug_PrintString("[3] Acceleration",0);
+				UPD();
+				uint32_t ForceKey;
+				uint32_t ConfForce;
+				getKey(&ForceKey, &ConfForce);
+				UPD();
+				if(ForceKey == KEY_1){
+					UG_PutString(160,264,"Mass?");
+					UPD();
+					double m = getCommandInput();
+					cls();
+					UG_PutString(160,264,"Acceleration?");
+					UPD();
+					double a = getCommandInput();
+					double F = m * a;
+					cls();
+					char* ForceAns = nullptr;
+					UG_PutString(160,150,"Force = ");
+					UG_PutString(160,264,doubleToString(F,ForceAns));
+					UPD();
+					while(true){
+						uint32_t key1, key2;    // First create variables
+						getKey(&key1, &key2);    // then read the keys
+						if(testKey(key1, key2, KEY_EXE)){ // Use testKey() to test if a specific key is pressed 
+							break;
+						}
+					}
+				}else if(ForceKey == KEY_2){
+
+					Debug_SetCursorPosition(0,160);
+					Debug_PrintString("Physium Formulae-ClassPad", 0);
+					UG_PutString(160,264,"Force=?");
+					UPD();
+					double F = getCommandInput();
+					cls();
+	        		Debug_SetCursorPosition(0,160);
+		    		Debug_PrintString("Physium Formulae-ClassPad", 0);
+	        		UG_PutString(160,264,"Acceleration?");
+		    		UPD();
+					double a = getCommandInput();
+					cls();
+					Debug_SetCursorPosition(0,160);
+					Debug_PrintString("Physium Formulae-ClassPad", 0);
+					UG_PutString(160,264,"Mass =");
+					double m = F / a;
+					char* MassAns = nullptr;
+					UG_PutString(160,264,doubleToString(m,MassAns));
+					UPD();
+					while(true){
+						uint32_t key1, key2;    // First create variables
+						getKey(&key1, &key2);    // then read the keys
+						break;
+					};
+				} else if(ForceKey == KEY_3){
+					Debug_SetCursorPosition(0,160);
+					Debug_PrintString("Physium Formulae-ClassPad", 0);
+					UG_PutString(160,264,"Force = ?");
+					UPD();
+					double F = getCommandInput();
+					cls();
+					Debug_SetCursorPosition(0,160);
+					Debug_PrintString("Physium Formulae-ClassPad", 0);
+					UG_PutString(160,264,"Mass = ?");
+					UPD();
+					double m = getCommandInput();
+					cls();
+					Debug_SetCursorPosition(0,160);
+					Debug_PrintString("Physium Formulae-ClassPad", 0);
+					UG_PutString(160,264,"Acceleration =");
+					double a = F / m;
+					char* AccelAns = nullptr;
+					UG_PutString(160,264,doubleToString(a,AccelAns));
+					UPD();
+					while(true){
+						uint32_t key1, key2;    // First create variables
+						getKey(&key1, &key2);    // then read the keys
+						break;
+					};
+				}
+			} else if(SMenukey == KEY_3){
+				Debug_SetCursorPosition(0,0);
+				Debug_PrintString("Physium Formulae-ClassPad", 0);
+				UG_PutString(2,264,"Force of Gravity Solver Submenu");
 			}
-					
-		}else if (Menukey == KEY_2){
+		} else if (Menukey == KEY_2){
+			cls();
 	    	Debug_SetCursorPosition(0,160);
     		Debug_PrintString("Physium Formulae-ClassPad", 0);
     		Debug_SetCursorPosition(160,0);
@@ -314,7 +440,10 @@ int main() {
 			UG_PutString(320,264,"WIP");
 			UG_PutString(160,40,"GPE = mass * accel. to grav. * height");
 			UG_PutString(160,80,"F = Mass * Acceleration");
+			UPD();
 			while(true){
+				uint32_t key1, key2;    // First create variables
+	  			getKey(&key1, &key2);
 				break;
 			};
 		}else if (Menukey == KEY_3){
@@ -322,7 +451,7 @@ int main() {
     		Debug_PrintString("Physium Formulae-ClassPad", 0);
     		Debug_SetCursorPosition(264,160);
     		Debug_PrintString("Program Terminating...",0);
-    		LCD_Refresh();
+    		UPD();
 			while(true){
 				break;
 			}
