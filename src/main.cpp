@@ -514,7 +514,7 @@ int main() {
     		Debug_PrintString("Physium Formulae-ClassPad", 0);
     		Debug_SetCursorPosition(160,0);
 			Debug_PrintString("Formulas",0);
-			UG_PutString(320,264,"WIP");
+			UG_PutString(0,264,"WIP");
 			UG_PutString(160,40,"GPE = mass * accel. to grav. * height");
 			UG_PutString(160,80,"F = Mass * Acceleration");
 			UPD();
@@ -550,8 +550,8 @@ int main() {
 		//case KEY_3:
 		//	return 0;
 
+		UPD();
+		cls();
 		return 0;
-		
 		calcEnd();
-		
 }
